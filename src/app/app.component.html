@@ -1,8 +1,22 @@
+<md-sidenav-container>
+  <md-sidenav mode="side" opened="true">
+    <button md-button (click)="selectStartTile()">Start</button>
+    <button md-button (click)="selectEndTile()">Stop</button>
+    <button md-button (click)="MazeSolver()">Matrix</button>
+  </md-sidenav>
+  <div class="my-content">Main content</div>
 <md-grid-list cols="12" rowHeight="1:1">
   <md-grid-tile
     *ngFor="let tile of tiles; let i = index"
     [style.background]="tile.color"
     (click) = "onMarkedBook(i)">
     {{tile.text}}
+    <div *ngIf="tile.startTile == '1'">
+      <div class="number-start">Start</div>
+    </div>
+    <div *ngIf="tile.endTile == '1'">
+      <div class="number-start">Stop</div>
+    </div>
   </md-grid-tile>
 </md-grid-list>
+</md-sidenav-container>
